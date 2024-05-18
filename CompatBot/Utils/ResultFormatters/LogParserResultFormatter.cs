@@ -110,8 +110,19 @@ internal static partial class LogParserResult
 
     private static readonly string[] KnownDisableVertexCacheIds =
     [
+        "BLES01219", "BLUS30616", // penguins blowhole
+        "NPEB00754", "NPUB30605", // real steel
+        "BLES01379", "BLUS30813", // marvel comic combat
+        "BLES00895", "BLUS30525", "BLAS50277", // marvel infinity gauntlet
+        "BLES01446", "BLUS30565", "BLJM60391", // sh downpour
+        "BLES02070", "BLUS31460", "BLJM61220", // kh2.5
         "NPEB00258", "NPUB30162", "NPJB00068", // scott pilgrim
         "NPEB00303", "NPUB30242", "NPHB00229", // crazy taxi
+        "NPEB00630", "NPUB30493", "NPJB00161", "NPHB00383", // daytona usa
+        "BLES00712", "BLUS30398", "BLJS10039", "BLJS50009", // way samurai 3
+        "NPEB00304", "NPUB30249", "NPJB00083", "NPHB00228", // sonic adventure
+        "BLES00024", "BLUS30032", "NPEB00788", "NPUB30636", "NPHB00481", // splinter cell double agent
+        "BLES01342", "BLUS30666", "BLES01343", "BLKS20333", "BLES01747", "BLES01748", "BLUS31062", "NPEB00890", "NPUB30700", // saints row 3
     ];
 
     private static readonly HashSet<string> KnownNoRelaxedXFloatIds = [];
