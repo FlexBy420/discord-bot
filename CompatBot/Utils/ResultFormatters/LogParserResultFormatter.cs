@@ -101,6 +101,9 @@ internal static partial class LogParserResult
 
         // White Knight Chronicles II
         {"BCJS30042", "NPJA00104"}
+
+        // Aquanaut's Holiday: Hidden Memories
+        {"BCJS30023", "NPJA00103"}
     };
 
     private static readonly string[] Known1080pIds =
@@ -291,6 +294,7 @@ internal static partial class LogParserResult
         "NPEA00036", "NPUA80069", "NPJA00004", // locoroco
         "BCES01284", "BCUS98247", "BCUS99142", "NPEA00429", "NPUA80875", "NPEA90120", "NPUA70250", // sly cooper 4
         "BCAS20112", "BCAS20189", "BCKS10112", "BLES01101", "BLJS10072", "BLJS10114", "BLJS50026", "BLUS30652", "NPEB90321", // no more heroes
+        "BCUS98116", "BCES00081", "BCAS20066", "BCJS30032", // killzone 2
     ];
 
     private static readonly HashSet<string> KnownGamesThatRequireInterpreter =
