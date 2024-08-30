@@ -11,16 +11,16 @@ public static class IrdSearchResultFormatter
     {
         var result = new DiscordEmbedBuilder
         {
-            //Title = "IRD Library Search Result",
             Color = Config.Colors.DownloadLinks,
         };
-        if (searchResult?.Data is null or {Count: 0})
+
+        if (searchResult?.Data is null or { Count: 0 })
         {
             result.Color = Config.Colors.LogResultFailed;
             result.Description = "No matches were found";
             return result;
         }
-
+        var irdClient = new IrdClient();
         foreach (var item in searchResult.Data)
         {
             if (string.IsNullOrEmpty(item.Filename))
@@ -28,10 +28,11 @@ public static class IrdSearchResultFormatter
 
             string[] parts = item.Filename.Split('-');
             if (parts.Length == 1)
-                parts = ["", item.Filename];
+                parts = new[] { "", item.Filename };
+            string downloadLink = irdClient.GetDownloadLink(item.Filename);
             result.AddField(
                 $"[{parts[0]} v{item.GameVersion}] {item.Title?.Sanitize().Trim(EmbedPager.MaxFieldTitleLength)}",
-                $"[⏬ `{parts[1].Sanitize().Trim(200)}`]({IrdClient.GetDownloadLink(item.Filename)})"
+                $"[⏬ `{parts[1].Sanitize().Trim(200)}`]({downloadLink})"
             );
         }
         return result;
