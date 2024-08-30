@@ -5,6 +5,7 @@ on:
     branches: [ ird-patch ]
   pull_request:
     branches: [ ird-patch ]
+  workflow_dispatch:
 
 jobs:
   BuildDebugAndTest:
