@@ -121,7 +121,7 @@ public class IrdClient
         }
     }
 
-    private string GetDownloadLink(string irdFilename)
+    public string GetDownloadLink(string irdFilename)
     {
         var builder = new UriBuilder(BaseDownloadUri)
         {
