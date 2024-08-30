@@ -20,6 +20,7 @@ public static class IrdSearchResultFormatter
             result.Description = "No matches were found";
             return result;
         }
+
         var irdClient = new IrdClient();
         foreach (var item in searchResult.Data)
         {
@@ -29,6 +30,7 @@ public static class IrdSearchResultFormatter
             string[] parts = item.Filename.Split('-');
             if (parts.Length == 1)
                 parts = new[] { "", item.Filename };
+
             string downloadLink = irdClient.GetDownloadLink(item.Filename);
             result.AddField(
                 $"[{parts[0]} v{item.GameVersion}] {item.Title?.Sanitize().Trim(EmbedPager.MaxFieldTitleLength)}",
