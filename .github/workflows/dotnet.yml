@@ -2,9 +2,9 @@ name: .NET
 
 on:
   push:
-    branches: [ master ]
+    branches: [ ird-patch ]
   pull_request:
-    branches: [ master ]
+    branches: [ ird-patch ]
 
 jobs:
   BuildDebugAndTest:
