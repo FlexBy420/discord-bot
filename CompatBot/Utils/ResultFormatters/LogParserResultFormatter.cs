@@ -920,6 +920,7 @@ internal static partial class LogParserResult
             >= 20 and < 40 => driverVer.Major switch
             {
                 // see https://en.wikipedia.org/wiki/Windows_Display_Driver_Model#WDDM_2.0
+                // and https://learn.microsoft.com/en-us/windows-hardware/drivers/display/windows-vista-display-driver-model-design-guide
                 20 => "10",
                 21 => "10 1607",
                 22 => "10 1703",
@@ -932,6 +933,7 @@ internal static partial class LogParserResult
                 29 => "10 21H1",
                 30 => "11 21H2",
                 31 => "11 22H2",
+                32 => "11 24H2",
                 _ => null,
             },
             _ => null,
@@ -993,7 +995,10 @@ internal static partial class LogParserResult
                 < 24000 => "11 Dev Build " + windowsVersion.Build, // 23k series
                 < 25000 => "11 ??? Build " + windowsVersion.Build,
                 < 26052 => "11 Canary Build " + windowsVersion.Build, // 25k series
-                < 27000 => "11 Dev/Canary Build " + windowsVersion.Build, // dev/canary merge branch before 24H2
+                26100 => "11 24H2",
+                < 26120 => "11 Dev/Canary Build " + windowsVersion.Build, // dev/canary merge branch before 24H2
+                26120 => "11 24H2 Dev Build",
+                <27000 => "11 Canary Build " + windowsVersion.Build,
                 _ => "11 ??? Build " + windowsVersion.Build,
             },
             _ => null,
@@ -1058,13 +1063,14 @@ internal static partial class LogParserResult
                 13 => "macOS High Sierra",
                 14 => "macOS Mojave",
                 15 => "macOS Catalina",
-                _ => null,
+                _ => "Unknown Apple OS",
             },
             11 => "macOS Big Sur",
             12 => "macOS Monterey",
             13 => "macOS Ventura",
             14 => "macOS Sonoma",
-            _ => null,
+            15 => "macOS Sequoia",
+            _ => "Unknown Apple OS",
         };
 
     internal static bool IsAmd(string gpuInfo)
