@@ -18,9 +18,9 @@ namespace IrdLibraryClient;
 public class IrdClient
 {
     public static readonly string JsonUrl = "https://flexby420.github.io/playstation_3_ird_database/all.json";
-
     private readonly HttpClient client;
     private readonly JsonSerializerOptions jsonOptions;
+    private readonly Uri BaseDownloadUri = new("https://github.com/FlexBy420/playstation_3_ird_database/raw/main/");
 
     public IrdClient()
     {
@@ -99,7 +99,8 @@ public class IrdClient
                     try
                     {
                         // Download and cache the IRD file
-                        var fileBytes = await client.GetByteArrayAsync(item.Filename, cancellationToken).ConfigureAwait(false);
+                        var downloadLink = GetDownloadLink(item.IrdName);
+                        var fileBytes = await client.GetByteArrayAsync(downloadLink, cancellationToken).ConfigureAwait(false);
                         await File.WriteAllBytesAsync(localFilePath, fileBytes, cancellationToken).ConfigureAwait(false);
                         result.Add(IrdParser.Parse(fileBytes));
                     }
@@ -119,8 +120,16 @@ public class IrdClient
             return result;
         }
     }
-}
 
+    private string GetDownloadLink(string irdFilename)
+    {
+        var builder = new UriBuilder(BaseDownloadUri)
+        {
+            Path = Path.Combine(BaseDownloadUri.AbsolutePath, irdFilename)
+        };
+        return builder.ToString();
+    }
+}
 
 public class IrdInfo
 {
