@@ -1297,9 +1297,9 @@ internal static partial class LogParserResult
 
     private static readonly HashSet<string> Lbp1Ids =
     [
-        "BCAS20058", "BCAS20078", "BCAS20091", "BCES00611", "BCES00141", "BCJS70009", "BCKS10059", "BCUS98148",
-        "BCUS98199", "BCUS98208",
-        "NPEA00241", "NPHA80093", "NPUA80472", "NPUA80479",
+        "BCAS20058", "BCAS20091", "BCJS30018", "BCES00141", "BCJS70009", "BCKS10059", "BCUS98148", "BCUS98199",
+        "BCES00611", "BCUS98208", "BCAS20078", // goty
+        "NPEA00241", "NPHA80092", "NPUA80472", "NPJA00052",
     ];
 
     private static readonly HashSet<string> Lbp2Ids =
@@ -1315,11 +1315,15 @@ internal static partial class LogParserResult
         "NPEA00515", "NPHA80277", "NPUA81116",
     ];
 
+    private static readonly HashSet<string> LbpMIds =
+    [
+        "NPEA00243", "NPUA80479", "NPJA00058", "NPHA80093", // sackboy prehistoric moves
+    ];
+
     private static readonly HashSet<string> AllLbpGames =
     [
         ..Lbp1Ids, ..Lbp2Ids, ..Lbp3Ids,
-        "NPEA00147", "NPJA90074", "NPJA90097",
-        "NPUA70045", // lbp1 demos and betas
+        "NPEA00147", "NPUA70045", "NPJA90097", "NPHA80067", "BCUS70030", "NPJA90074", "BCET70002", "BCET70011", // lbp1 demos and betas
         "NPUA70117", "NPHA80163", // lbp2 demo and beta
     ];
 
